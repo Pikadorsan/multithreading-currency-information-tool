@@ -7,6 +7,15 @@ import java.util.concurrent.*;
 public class Main {
     public static void main(String[] args) {
 
+        if (args.length == 1 && (args[0].equals("-h") || args[0].equals("--help") || args[0].equals("/?") || args[0].equals("/h"))) {
+            System.out.println("The application is used for downloading and displaying prices of computer peripherals.");
+            System.out.println("This application was created for development purposes.");
+            System.out.println("Invocation parameters:");
+            System.out.println("-h, --help, /?, /h - display the list of parameters");
+            System.out.println("-f <file name>, --file <file name> - save the result to a file with the specified name");
+            System.exit(0);
+        }
+        
         ScheduledExecutorService executorService = Executors.newScheduledThreadPool(2);
 
         Semaphore semaphore = new Semaphore(0);
